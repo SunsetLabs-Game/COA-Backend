@@ -4,6 +4,7 @@ import { UserModule } from './modules/users/user.module';
 import { BlockchainModule } from './modules/blockchain/blockchain.module';
 import { StarknetRouterModule } from './routers';
 import { StarknetController } from './modules/blockchain/controllers/starknet.controller';
+import { LaderboardModule } from './modules/game/laderboard.module';
 
 /**
  * Main application module
@@ -39,6 +40,7 @@ import { StarknetController } from './modules/blockchain/controllers/starknet.co
     UserModule,
     BlockchainModule,
     StarknetRouterModule,
+    LaderboardModule,
   ],
   controllers: [StarknetController],
 })
