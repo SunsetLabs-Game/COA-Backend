@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
 import NotificationService from '../services/notification.service';
-import { CreateNotificationDto, MarkNotificationAsReadDto } from '../dtos/notification.dto';
+import {
+  CreateNotificationDto,
+  MarkNotificationAsReadDto,
+} from '../dtos/notification.dto';
 import { validate } from 'class-validator';
 
-
 class NotificationController {
-
   async createNotification(req: Request, res: Response): Promise<Response> {
     try {
       const dto = Object.assign(new CreateNotificationDto(), req.body);
@@ -28,13 +29,13 @@ class NotificationController {
         return res.status(400).json({ message: 'Invalid user ID' });
       }
 
-      const notifications = await NotificationService.getUserNotifications(userId);
+      const notifications =
+        await NotificationService.getUserNotifications(userId);
       return res.status(200).json(notifications);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
   }
-
 
   async getUnreadNotifications(req: Request, res: Response): Promise<Response> {
     try {
@@ -43,7 +44,8 @@ class NotificationController {
         return res.status(400).json({ message: 'Invalid user ID' });
       }
 
-      const unreadNotifications = await NotificationService.getUnreadNotifications(userId);
+      const unreadNotifications =
+        await NotificationService.getUnreadNotifications(userId);
       return res.status(200).json(unreadNotifications);
     } catch (error) {
       return res.status(500).json({ message: error.message });
@@ -58,7 +60,9 @@ class NotificationController {
         return res.status(400).json({ errors });
       }
 
-      const updatedNotification = await NotificationService.markAsRead(dto.notificationId);
+      const updatedNotification = await NotificationService.markAsRead(
+        dto.notificationId,
+      );
       return res.status(200).json(updatedNotification);
     } catch (error) {
       return res.status(500).json({ message: error.message });

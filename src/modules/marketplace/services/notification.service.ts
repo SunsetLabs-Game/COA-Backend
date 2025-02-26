@@ -3,6 +3,7 @@ import { Notification } from '../entities/notification.entity';
 import { CreateNotificationDto } from '../dtos/notification.dto';
 
 class NotificationService {
+
   private notificationRepository = getRepository(Notification);
 
   async createNotification(dto: CreateNotificationDto): Promise<Notification> {
@@ -30,7 +31,11 @@ class NotificationService {
   }
 
   async markAsRead(notificationId: number): Promise<Notification> {
+
+    const notification = await NotificationRepository.findOne({
+
     const notification = await this.notificationRepository.findOne({
+
       where: { id: notificationId },
     });
     if (!notification) {

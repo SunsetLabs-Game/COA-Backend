@@ -1,41 +1,41 @@
 import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    CreateDateColumn,
-    UpdateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 export enum TradeStatus {
-    PENDING = "PENDING",
-    ACCEPTED = "ACCEPTED",
-    REJECTED = "REJECTED",
-    CANCELLED = "CANCELLED"
+  PENDING = 'PENDING',
+  ACCEPTED = 'ACCEPTED',
+  REJECTED = 'REJECTED',
+  CANCELLED = 'CANCELLED',
 }
 
 @Entity({ name: 'trades' })
 export class Trade {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    senderId: number;
+  @Column()
+  senderId: number;
 
-    @Column()
-    receiverId: number;
+  @Column()
+  receiverId: number;
 
-    @Column()
-    offeredItemId: number;
+  @Column()
+  offeredItemId: number;
 
-    @Column()
-    requestedItemId: number;
+  @Column()
+  requestedItemId: number;
 
-    @Column({ type: 'enum', enum: TradeStatus })
-    status: TradeStatus;
+  @Column({ type: 'enum', enum: TradeStatus })
+  status: TradeStatus;
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @UpdateDateColumn()
+  updatedAt: Date;
 }

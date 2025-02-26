@@ -1,4 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+} from 'typeorm';
 
 export enum LootboxRarity {
   COMMON = 'COMMON',
@@ -21,10 +26,10 @@ export class Lootbox {
   ownerId: number;
 
   // Store IDs of potential items/NFTs
-  @Column("int", { array: true })
+  @Column('int', { array: true })
   items: number[];
 
-  @Column("decimal")
+  @Column('decimal')
   price: number;
 
   @Column({

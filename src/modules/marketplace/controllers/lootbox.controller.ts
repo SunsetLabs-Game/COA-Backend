@@ -1,4 +1,11 @@
-import { Controller, Post, Body, Param, ParseIntPipe, Get } from '@nestjs/common';
+import {
+  Controller,
+  Post,
+  Body,
+  Param,
+  ParseIntPipe,
+  Get,
+} from '@nestjs/common';
 import { LootboxService } from '@/modules/marketplace/services/lootbox.service';
 import { CreateLootboxDto } from '@/modules/marketplace/dtos/lootbox.dto';
 

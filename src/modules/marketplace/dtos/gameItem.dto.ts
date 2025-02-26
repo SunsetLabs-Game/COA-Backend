@@ -1,5 +1,12 @@
-import { IsEnum, IsNotEmpty, IsBoolean, IsNumber, IsOptional, IsObject } from "class-validator";
-import { ItemType, Rarity } from "../entities/gameItem.entity";
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsBoolean,
+  IsNumber,
+  IsOptional,
+  IsObject,
+} from 'class-validator';
+import { ItemType, Rarity } from '../entities/gameItem.entity';
 
 export class CreateGameItemDTO {
   @IsNotEmpty()

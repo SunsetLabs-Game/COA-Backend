@@ -1,6 +1,13 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Lootbox, LootboxStatus } from '@/modules/marketplace/entities/lootbox.entity';
+import {
+  Lootbox,
+  LootboxStatus,
+} from '@/modules/marketplace/entities/lootbox.entity';
 import { LootboxRepository } from '@/modules/marketplace/repositories/lootbox.repository';
 import { CreateLootboxDto } from '@/modules/marketplace/dtos/lootbox.dto';
 
@@ -8,7 +15,7 @@ import { CreateLootboxDto } from '@/modules/marketplace/dtos/lootbox.dto';
 export class LootboxService {
   constructor(
     @InjectRepository(Lootbox)
-    private readonly lootboxRepository: LootboxRepository
+    private readonly lootboxRepository: LootboxRepository,
   ) {}
 
   async purchaseLootbox(createLootboxDto: CreateLootboxDto): Promise<Lootbox> {

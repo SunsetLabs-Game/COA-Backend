@@ -1,14 +1,14 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { GameItem } from "../entities/gameItem.entity";
-import { CreateGameItemDTO } from "../dtos/gameItem.dto";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { GameItem } from '../entities/gameItem.entity';
+import { CreateGameItemDTO } from '../dtos/gameItem.dto';
 
 @Injectable()
 export class GameItemService {
   constructor(
     @InjectRepository(GameItem)
-    private readonly gameItemRepository: Repository<GameItem>
+    private readonly gameItemRepository: Repository<GameItem>,
   ) {}
 
   async getAllItems(): Promise<GameItem[]> {

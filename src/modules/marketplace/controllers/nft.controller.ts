@@ -47,7 +47,10 @@ class NFTController {
       if (errors.length > 0) {
         return res.status(400).json({ errors });
       }
-      const nft = await NFTService.updateNFTListing(Number(req.params.id), updateDto);
+      const nft = await NFTService.updateNFTListing(
+        Number(req.params.id),
+        updateDto,
+      );
       res.json(nft);
     } catch (error) {
       res.status(400).json({ error: (error as Error).message });

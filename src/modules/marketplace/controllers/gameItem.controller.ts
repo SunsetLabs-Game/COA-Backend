@@ -1,9 +1,9 @@
-import { Controller, Get, Post, Body, Param } from "@nestjs/common";
-import { GameItemService } from "../services/gameItem.service";
-import { GameItem } from "../entities/gameItem.entity";
-import { CreateGameItemDTO } from "../dtos/gameItem.dto";
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { GameItemService } from '../services/gameItem.service';
+import { GameItem } from '../entities/gameItem.entity';
+import { CreateGameItemDTO } from '../dtos/gameItem.dto';
 
-@Controller("game-items")
+@Controller('game-items')
 export class GameItemController {
   constructor(private readonly gameItemService: GameItemService) {}
 
@@ -12,13 +12,16 @@ export class GameItemController {
     return this.gameItemService.getAllItems();
   }
 
-  @Get(":ownerId")
-  async getItemsByOwner(@Param("ownerId") ownerId: number): Promise<GameItem[]> {
+  @Get(':ownerId')
+  async getItemsByOwner(
+    @Param('ownerId') ownerId: number,
+  ): Promise<GameItem[]> {
     return this.gameItemService.getItemsByOwner(ownerId);
   }
 
   @Post()
-  async createItem(@Body() itemData: CreateGameItemDTO): Promise<GameItem> { // <-- Cambiar el tipo aquí
+  async createItem(@Body() itemData: CreateGameItemDTO): Promise<GameItem> {
+    // <-- Cambiar el tipo aquí
     return this.gameItemService.createItem(itemData);
   }
 }

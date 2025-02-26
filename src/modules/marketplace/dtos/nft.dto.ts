@@ -1,4 +1,10 @@
-import { IsNotEmpty, IsString, IsNumber, IsUrl, IsOptional, IsBoolean } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsString,
+  IsNumber,
+  IsUrl,
+  IsBoolean,
+} from 'class-validator';
 
 export class CreateNFTDto {
   @IsString()

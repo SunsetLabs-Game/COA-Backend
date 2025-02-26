@@ -4,7 +4,6 @@ import { CreateTradeDto, UpdateTradeStatusDto } from '../dtos/trade.dto';
 import { validate } from 'class-validator';
 
 class TradeController {
-  
   async createTrade(req: Request, res: Response): Promise<Response> {
     try {
       const dto = Object.assign(new CreateTradeDto(), req.body);

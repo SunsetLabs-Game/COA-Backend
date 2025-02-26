@@ -2,8 +2,12 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './modules/users/user.module';
 import { BlockchainModule } from './modules/blockchain/blockchain.module';
+
+import { MarketplaceModule } from './modules/marketplace/marketplace.module';
+
 import { StarknetRouterModule } from './routers';
 import { StarknetController } from './modules/blockchain/controllers/starknet.controller';
+
 
 /**
  * Main application module
@@ -38,6 +42,7 @@ import { StarknetController } from './modules/blockchain/controllers/starknet.co
     // }),
     UserModule,
     BlockchainModule,
+    MarketplaceModule,
     StarknetRouterModule,
   ],
   controllers: [StarknetController],

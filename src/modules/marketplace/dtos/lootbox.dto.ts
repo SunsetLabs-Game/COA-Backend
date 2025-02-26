@@ -1,4 +1,11 @@
-import { IsNotEmpty, IsNumber, IsArray, ArrayNotEmpty, IsEnum, IsPositive } from 'class-validator';
+import {
+  IsNotEmpty,
+  IsNumber,
+  IsArray,
+  ArrayNotEmpty,
+  IsEnum,
+  IsPositive,
+} from 'class-validator';
 import { LootboxRarity } from '@/modules/marketplace/entities/lootbox.entity';
 
 export class CreateLootboxDto {

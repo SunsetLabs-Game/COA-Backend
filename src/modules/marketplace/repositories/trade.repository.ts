@@ -1,3 +1,10 @@
+
+import { Repository } from 'typeorm';
+import { Trade } from '../entities/trade.entity';
+
+export const TradeRepository: Repository<Trade> =
+  AppDataSource.getRepository(Trade);
+
 import { getRepository, Repository } from 'typeorm';
 import { Trade, TradeStatus } from '../entities/trade.entity';
 
@@ -28,3 +35,4 @@ export class TradeRepository {
     await this.repo.update(id, { status });
   }
 }
+
