@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsInt, Min, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class TransferDto {
@@ -17,4 +17,14 @@ export class TransferDto {
   @IsString()
   @IsNotEmpty()
   tokenId: string;
+
+  @ApiProperty({
+    description: 'Amount of tokens to transfer',
+    example: 1,
+    default: 1
+  })
+  @IsInt()
+  @Min(1)
+  @IsOptional()
+  amount?: number;
 }
