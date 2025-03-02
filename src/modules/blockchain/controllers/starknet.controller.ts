@@ -71,23 +71,24 @@ export class StarknetController {
     }
   }
 
-  @ApiOperation({ summary: 'Transfer NFT between accounts' })
-  @ApiBody({ type: TransferDto, description: 'Transfer details' })
-  @ApiResponse({ status: 200, description: 'NFT transferred successfully' })
-  @ApiResponse({ status: 500, description: 'Internal server error' })
-  @Post('transfer')
-  async transferNFT(
-    @Body() transferDto: TransferDto,
-    @Response() res: Res,
-  ): Promise<void> {
-    try {
-      const tx = await this.starknetService.transferNFT(transferDto);
-      res.status(200).json({
-        message: `Token ${transferDto.tokenId} transferred to ${transferDto.to}`,
-        hash: tx.hash
-      });
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
+@ApiOperation({ summary: 'Transfer tokens between accounts' })
+@ApiBody({ type: TransferDto, description: 'Transfer details' })
+@ApiResponse({ status: 200, description: 'Tokens transferred successfully' })
+@ApiResponse({ status: 500, description: 'Internal server error' })
+@Post('transfer')
+async transferNFT(
+  @Body() transferDto: TransferDto,
+  @Response() res: Res,
+): Promise<void> {
+  try {
+    const tx = await this.starknetService.transferNFT(transferDto);
+    res.status(200).json({
+      message: `${transferDto.amount || 1} token(s) with ID ${transferDto.tokenId} transferred to ${transferDto.to}`,
+      hash: tx.hash,
+      explorerUrl: `https://sepolia.starkscan.co/tx/${tx.hash}`
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
+}
 }
