@@ -13,6 +13,7 @@ import { Leaderboard } from './modules/game/entities/laderboard.entity';
 import { Review } from './modules/marketplace/entities/review.entity';
 import { ReviewModule } from './modules/marketplace/review.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { StarknetModule } from './modules/blockchain/starknet.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     StarknetRouterModule,
     LeaderboardModule,
     ReviewModule,
+    StarknetModule,
   ],
   controllers: [LeaderboardController],
 })
